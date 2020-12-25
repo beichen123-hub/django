@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <script src='static/js/jquery-2.1.0.js'></script>
+{##}
+{#    <script>#}
+{#        $(function (){#}
+{#            $("#d1").click(function (){#}
+{#                var e = $('#e1').val()#}
+{#                var p = $('#p1').val()#}
+{##}
+{#                if("" == e || "" == p){#}
+{#                    $('#msg').html("不能为空")#}
+{#                    return false;#}
+{#                }#}
+{##}
+{#                if (e.length < 6 ) {#}
+{#                    $("#msg").html("所输入的邮箱必须要大于6");#}
+{#                    return false;#}
+{#                }#}
+{#                // 错误信息清空#}
+{#                $("#msg").html("");#}
+{#                return true;#}
+{##}
+{#            })#}
+{#        })#}
+{##}
+{##}
+{#    </script>#}
+
+
+
+
+    <script>
+        $(function(){
+
+
+            $('#d1').click(function(){
+                var e = $('#e1').val()
+                var p = $('#p1').val()
+                if(e == "" || p == ""){
+                    $('#msg').html("不能为空");
+                    return false;
+                    }
+
+                if(e.length < 6 ){
+                    $('#msg').html("邮箱不能小于6个字符");
+                    return false;
+                    }
+
+                $("#msg").html("");
+                return true;
+
+            })
+
+
+        })
+    </script>
+
+
+</head>
+<body>
+
+<form action="" method="post">
+    <table border="1px" align="center">
+        <tr>
+            <td>email：</td>
+            <td><input type="text" name="email" id = "e1"></td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input type="password" name="password" id = "p1"></td>
+        </tr>
+        <tr>
+            <td><button id = "d1">登录</button></td>
+            <td><span id="msg"></span></td>
+        </tr>
+
+    </table>
+
+</form>
+
+</body>
+</html>

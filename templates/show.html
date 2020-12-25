@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>展示数据</title>
+</head>
+<body>
+
+<form action="" method="post">
+
+    <table border="1px" align="center">
+
+        <tr>
+            <td>
+                <select name="g_name">
+                    <option value="" style="display: none"></option>
+                    <option value="大数据一班">大数据一班</option>
+                    <option value="大数据二班">大数据二班</option>
+                    <option value="大数据三班">大数据三班</option>
+                </select>
+            </td>
+            <td>姓名</td>
+            <td>电话</td>
+            <td>email</td>
+            <td>密码</td>
+            <td>
+                <input type="radio" name="sex" value="男">男
+                <input type="radio" name="sex" value="女">女
+            </td>
+            <td>年龄</td>
+            <td>
+                <select name="zhiwei">
+                    <option value="" style="display: none"></option>
+                    <option value="班长">班长</option>
+                    <option value="学委">学委</option>
+                    <option value="体育委员">体育委员</option>
+                    <option value="同学">同学</option>
+                </select>
+            </td>
+
+            <td>
+                <button>提交</button>
+            </td>
+        </tr>
+
+
+
+
+        {% if g_all %}
+                {% for s in s_all %}
+                    {% for g in g_all %}
+                        {% if s.g == g %}
+                            <tr>
+                                <td>{{ g.g_name }}</td>
+                                <td>{{ s.s_name }}</td>
+                                <td>{{ s.phone }}</td>
+                                <td>{{ s.email }}</td>
+                                <td>{{ s.password }}</td>
+                                <td>{{ s.sex }}</td>
+                                <td>{{ s.age }}</td>
+                                <td>{{ s.zhiwei }}</td>
+                                <td><a href="{% url 'delete' s.id %}">删除</a></td>
+                                <td><a href="{% url 'update' s.id %}">更新</a></td>
+
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+
+        {% endif %}
+
+       <td> <a href="{% url 'one' %}">新增</a></td>
+    </table>
+
+</form>
+</body>
+</html>
